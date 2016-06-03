@@ -1,11 +1,10 @@
 {
   "name": "aphelion-spice",
-  "version": "0.0.0",
-  "description": "View management microframework",
-  "main": "index.js",
+  "version": "0.0.2",
+  "description": "The simply view management microframework",
+  "main": "bin/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "= <=>",
+  "author": "Alexander Rafferty <alex@apheliondigital.com>",
   "license": "ISC"
 }
