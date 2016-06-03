@@ -1,11 +1,11 @@
 var path = require('path');
-var fs = require('fs');
+var fs = require('node-fs-extra');
 
-exports.build = function(options)
+exports.build = function(options, cb)
 {
-  if (!fs.existsSync(path.dirname(options.outfile))) {
-    fs.mkdirSync(path.dirname(options.outfile));
-  }
-  var ws = fs.createWriteStream(options.outfile);
-  ws.end('module.exports = function(locals) { return \'<html></html>\'; };');
+  fs.mkdirs(path.dirname(options.outfile), function (err) {
+    var ws = fs.createWriteStream(options.outfile);
+    ws.end('module.exports = function(locals) { return \'<html></html>\'; };');
+    cb(null);
+  });
 };
