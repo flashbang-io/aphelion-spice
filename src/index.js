@@ -1,11 +1,10 @@
-'use strict';
-
 var path = require('path');
 var fs = require('node-fs-extra');
 var webpack = require('./webpack');
 var cp = require('child_process');
 
-exports.build = function (options, callback) {
+exports.build = function(options, callback)
+{
   /*fs.mkdirs(path.dirname(options.outfile), function (err) {
     var ws = fs.createWriteStream(options.outfile);
     var html = '<!doctype HTML>\\n<html>\\n  <head>\\n    <title>Hello world</title>\\n  </head>\\n  <body>\\n    <h1>Hello world</h1>\\n  </body>\\n</html>';
