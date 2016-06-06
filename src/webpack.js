@@ -62,8 +62,8 @@ module.exports = function(options, callback)
     };
     config.resolve = {
       alias: {
-        'view$': options.entry,
-        'spice$': path.join(__dirname, 'bindings/build.js')
+        'spice$': path.join(__dirname, 'bindings/build.js'),
+        'spice-view$': options.entry
       }
     };
   }
@@ -76,8 +76,9 @@ module.exports = function(options, callback)
     };
     config.resolve = {
       alias: {
-        'view$': options.entry,
-        'spice$': path.join(__dirname, 'bindings/server.js')
+        'spice$': path.join(__dirname, 'bindings/server.js'),
+        'spice-view$': options.entry,
+        'spice-build$': path.join(options.publicdir, '__manifest.js')
       }
     };
   }

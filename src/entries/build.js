@@ -1,4 +1,4 @@
 import { __finish } from 'spice';
-import 'view';
+import 'spice-view';
 
 __finish();
