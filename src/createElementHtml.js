@@ -43,13 +43,7 @@ export default function createElement(tag, attribs, ...children) {
     let value = attribs[attr];
     if (key == 'style') {
       key = 'class';
-      value = value('');
-    }
-    if (key == 'className') {
-      key = 'class';
-      if (value.constructor === Array) {
-        value = value.join(' ');
-      }
+      value = '_' + value[1];
     }
     if (key == 'key' || value == null) {
       return str;

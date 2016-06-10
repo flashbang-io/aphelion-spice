@@ -1,3 +1,5 @@
+import { styleObjectToCSS, parseStyleObject } from '../cssFunctions';
+
 class Node {
   constructor(page) {
     this._page = page;
@@ -40,7 +42,8 @@ export class Component {
 export { default as createElement } from '../createElementHtml';
 
 export function style(style) {
-  return sel => sel == '' ? 'className' : '';
+  const parsed = parseStyleObject(style);
+  return parsed;
 }
 
 export function file(filename) {}

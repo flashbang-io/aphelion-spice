@@ -2,6 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 
+import { styleObjectToCSS, parseStyleObject } from '../cssFunctions';
+
 const hash = str => crypto.createHash('md5').update(str).digest("hex");
 
 const files = [];
@@ -17,19 +19,9 @@ export function file(filename) {
 }
 
 export function style(style) {
-  css += `.className {
-  background: red;
-}
-
-.className h1 {
-  color: blue;
-}
-
-.className h2 {
-  color: green;
-}
-`;
-  return sel => sel == '' ? 'className' : '';
+  const parsed = parseStyleObject(style);
+  css += styleObjectToCSS(parsed);
+  return parsed;
 }
 
 export function __finish() {

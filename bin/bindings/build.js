@@ -21,6 +21,8 @@ var _crypto = require('crypto');
 
 var _crypto2 = _interopRequireDefault(_crypto);
 
+var _cssFunctions = require('../cssFunctions');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -44,10 +46,9 @@ function file(filename) {
 }
 
 function style(style) {
-  css += '.className {\n  background: red;\n}\n\n.className h1 {\n  color: blue;\n}\n\n.className h2 {\n  color: green;\n}\n';
-  return function (sel) {
-    return sel == '' ? 'className' : '';
-  };
+  var parsed = (0, _cssFunctions.parseStyleObject)(style);
+  css += (0, _cssFunctions.styleObjectToCSS)(parsed);
+  return parsed;
 }
 
 function __finish() {

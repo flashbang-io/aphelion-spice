@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.createElement = exports.Component = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -16,6 +17,8 @@ Object.defineProperty(exports, 'createElement', {
 });
 exports.style = style;
 exports.file = file;
+
+var _cssFunctions = require('../cssFunctions');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -82,9 +85,8 @@ var Component = exports.Component = function () {
 }();
 
 function style(style) {
-  return function (sel) {
-    return sel == '' ? 'className' : '';
-  };
+  var parsed = (0, _cssFunctions.parseStyleObject)(style);
+  return parsed;
 }
 
 function file(filename) {}
